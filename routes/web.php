@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +26,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['prefix' => 'post'], function() {
-        Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('post.home');
-        Route::get('/create', [App\Http\Controllers\PostController::class, 'createIndex']);
+        Route::get('/', [PostController::class, 'index'])->name('post.home');
+        Route::get('/create', [PostController::class, 'createIndex']);
     });
 
 
-    Route::get('/permission', [App\Http\Controllers\PermissionController::class, 'index'])->name('permission.home');
+    Route::group(['prefix' => 'permission'], function() {
+        Route::get('/', [PermissionController::class, 'index'])->name('permission.home');
+        Route::get('/create', [PermissionController::class, 'createIndex']);
+        Route::post('/create', [PermissionController::class, 'store']);
+    });
 });
