@@ -19,6 +19,28 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-12 mt-1">
+            <div class="card">
+                <div class="card-header">Master list</div>
+                <div class="card-body">
+                    <a href="/permission/create" class="btn btn-primary">Create Permission</a>
+                    {{-- dd(auth()->user()->getRoleClass()->first()->hasPermissionTo('removepost')) --}}
+                    {{-- dd(auth()->user()->getPermissionsViaRoles()) --}}
+                    {{ dd(auth()->user()->can('remove post')) }}
+                    <table class="table table-responsive table-stripped">
+                        <tbody>
+                            @foreach ($roles as $role)
+                                <tr>
+                                    <td>{{ $role->name }}</td>
+                                    <td>{{ $role->permissions }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
