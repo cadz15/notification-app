@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
     use HasFactory, SoftDeletes;
+    
+    protected $guarded = ['id'];
 
     public function user() {
         return $this->hasOne(User::class);

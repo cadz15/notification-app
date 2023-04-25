@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $admin = User::where('id', 3)->first();
+        $admin = User::where('id', 1)->first();
         // dd($admin);
         $admin->notify(new UserNotification($user));
         // $user->notify(new RealTimeMessage('Lamao'));

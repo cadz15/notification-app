@@ -31,7 +31,7 @@
     <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script defer> 
-    Echo.private('App.Models.User.3')
+    Echo.private('App.Models.User.{{ auth()->user()->id }}')
     .notification((notification) => {
         console.log(notification.message);
         console.log(notification);

@@ -46,8 +46,10 @@
                         </tbody>
                     </table>
                     
+                    
 
-                    {{ $posts->links() }}
+                    {{ dd($posts->links('pagination::simple-bootstrap-4')) }}
+                     {{ $posts->links()  }}
                 </div>
             </div>
         </div>
