@@ -30,3 +30,8 @@ jobs:
         username: if0_34395381
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: 'htdocs/'
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/vendor/**
