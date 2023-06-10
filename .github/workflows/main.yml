@@ -19,7 +19,7 @@ jobs:
     - name: 🔨 Build Project
       run: |
         npm install
-        npm run build
+        npm run dev
         composer update
         composer install
         
