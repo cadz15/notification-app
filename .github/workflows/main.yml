@@ -1,0 +1,31 @@
+on: push
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+      
+    - name: Composer Dep
+      uses: nanasess/composer-installer-action@master
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+        composer install
+        
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftpupload.net
+        username: if0_34395381
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: 'htdocs/'
