@@ -27,7 +27,8 @@
                     <a href="/permission/create" class="btn btn-primary">Create Permission</a>
                     {{-- dd(auth()->user()->getRoleClass()->first()->hasPermissionTo('removepost')) --}}
                     {{-- dd(auth()->user()->getPermissionsViaRoles()) --}}
-                    {{ dd(auth()->user()->can('remove post')) }}
+                    {{-- dd(auth()->user()->can('removepost')) --}}
+                    {{-- dd(auth()->user()->getPermissionsViaRoles()) --}}
                     <table class="table table-responsive table-stripped">
                         <tbody>
                             @foreach ($roles as $role)

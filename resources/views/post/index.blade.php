@@ -26,8 +26,9 @@
                     Featured
                 </div>
                 <div class="card-body">
+                    @can('create post')
                     <a href="/post/create" class="btn btn-primary">Create Post</a>
-
+                    @endcan
 
                     <table class="table table-responsive table-striped">
                         <tbody>
@@ -46,9 +47,6 @@
                         </tbody>
                     </table>
                     
-                    
-
-                    {{ dd($posts->links('pagination::simple-bootstrap-4')) }}
                      {{ $posts->links()  }}
                 </div>
             </div>

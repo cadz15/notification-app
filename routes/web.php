@@ -27,7 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['prefix' => 'post'], function() {
         Route::get('/', [PostController::class, 'index'])->name('post.home');
-        Route::get('/create', [PostController::class, 'createIndex']);
+        Route::get('/create', [PostController::class, 'createIndex'])->middleware(['can:create post']);
         Route::post('/create', [PostController::class, 'store']);
     });
 

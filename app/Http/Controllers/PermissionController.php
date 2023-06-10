@@ -31,7 +31,7 @@ class PermissionController extends Controller
 
         $user = User::where('id', $request['permission-recipient'])->first();
 
-        $role = Role::firstOrCreate(['name' => 'superadmin']);
+        $role = Role::firstOrCreate(['name' => 'viewOnly']);
 
         $permission = Permission::make(['name' => $request['permission-name']]);
 
@@ -39,7 +39,9 @@ class PermissionController extends Controller
 
         $permission->assignRole($role);
 
-        $user->assignRole('superadmin');
+        $user->assignRole('viewOnly');
+        $user->removeRole('superadmin');
+
 
         return redirect('/permission');
     }

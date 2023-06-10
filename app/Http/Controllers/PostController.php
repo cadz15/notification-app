@@ -10,7 +10,7 @@ class PostController extends Controller
     //
 
     public function index() {
-        $posts = Post::where('user_id', auth()->user()->id)->simplePaginate(25);
+        $posts = Post::simplePaginate(5);
 
         return view('post.index', compact('posts'));
     }
@@ -26,8 +26,8 @@ class PostController extends Controller
             'post-body' => 'required'
         ]);
 
-        Post::create([
-            'title' => $request['post-tite'],
+        $post = Post::create([
+            'title' => $request['post-title'],
             'body' => $request['post-body'],
             'user_id' => auth()->user()->id
         ]);
