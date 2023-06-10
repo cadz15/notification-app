@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.4",
         "pusher/pusher-php-server": "^7.2",
-        "spatie/laravel-activitylog": "3.16.0",
+        "spatie/laravel-activitylog": "^3.16.0",
         "spatie/laravel-permission": "3.18"
     },
     "require-dev": {
